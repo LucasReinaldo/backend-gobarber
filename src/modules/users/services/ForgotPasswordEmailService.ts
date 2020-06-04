@@ -50,7 +50,7 @@ class ForgotPasswordEmailService {
         variables: {
           name: user.name,
           email: user.email,
-          link: `link da página mais ${token}`,
+          link: `${process.env.APP_WEB_URL}/reset_password?token=${token}`,
         },
       },
     });

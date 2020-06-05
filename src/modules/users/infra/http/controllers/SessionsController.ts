@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
+import { classToClass } from 'class-transformer';
 
 import AuthenticateUserSercice from '@modules/users/services/AuthenticateUserService';
-import { classToClass } from 'class-transformer';
 
 class SessionsController {
   public async create(request: Request, response: Response): Promise<Response> {

@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import uploadConfig from '@config/upload.config';
+
 import IStorageProvider from '../models/IStorageProvider';
 
 class DiskStorageProvider implements IStorageProvider {

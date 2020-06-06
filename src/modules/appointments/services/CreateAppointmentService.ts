@@ -3,6 +3,7 @@ import { injectable, inject } from 'tsyringe';
 
 import AppError from '@shared/errors/AppError';
 import INotificationsRepository from '@modules/notifications/repositories/INotificationsRepository';
+import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider';
 import Appointment from '../infra/typeorm/entities/Appointment';
 import IAppointmentRepository from '../repositories/IAppointmentRepository';
 
@@ -23,15 +24,21 @@ class CreateAppointmentService {
 
   private notificationsRepository: INotificationsRepository;
 
+  private cacheProvider: ICacheProvider;
+
   constructor(
     @inject('AppointmentsRepository')
     appointmentsRepository: IAppointmentRepository,
 
     @inject('NotificationsRepository')
     notificationsRepository: INotificationsRepository,
+
+    @inject('CacheProvider')
+    cacheProvider: ICacheProvider,
   ) {
     this.appointmentsRepository = appointmentsRepository;
     this.notificationsRepository = notificationsRepository;
+    this.cacheProvider = cacheProvider;
   }
   // OR we can use a short syntax.
   // constructor(@inject('AppointmentsRepository')private appointmentsRepository: IAppointmentRepository,) {}
@@ -76,6 +83,13 @@ class CreateAppointmentService {
       recipient_id: provider_id,
       content: `New schedule for ${formattedDate}`,
     });
+
+    await this.cacheProvider.invalidate(
+      `provider-appointments:${provider_id}:${format(
+        appointmentDate,
+        'd-M-YYYY',
+      )}`,
+    );
 
     return appointment;
   }

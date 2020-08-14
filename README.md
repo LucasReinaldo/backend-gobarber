@@ -5,6 +5,10 @@
 
 The Backend API basically updates the profile and shows the appointments of the day, month and according to the barber id.
 
+## 💡 Patterns
+
+For this project we have used SOLID principles and Domain Driven Design.
+
 ## 🚀 Technologies
 
 The project was developed during the GoStack Bootcamp by RocketSeat, developed mainly with the following technologies:

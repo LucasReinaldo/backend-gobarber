@@ -7,7 +7,7 @@ The Backend API basically updates the profile and shows the appointments of the 
 
 ## 💡 Patterns
 
-For this project we have used SOLID principles and Domain Driven Design.
+For this project I have used SOLID principles and Domain Driven Design.
 
 ## 🚀 Technologies
 

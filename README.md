@@ -7,7 +7,7 @@ The Backend API basically updates the profile and shows the appointments of the 
 
 ## 💡 Patterns
 
-For this project I have used SOLID principles and Domain Driven Design.
+For this project I used SOLID principles and Domain Driven Design.
 
 ## 🚀 Technologies
 
@@ -64,7 +64,7 @@ VS Code with EditorConfig and ESLint
 
 To clone and run this application, we will need NodeJS + Yarn (or NPM) installed.
 
-After clone the repository, from our command line:
+After this clone the repository, from our command line:
 
 ```
 # Clone this repository
